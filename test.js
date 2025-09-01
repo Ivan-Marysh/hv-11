@@ -23,7 +23,9 @@ withdraw(){
   const sum = Number(prompt("Введіть суму для отримання коштів"));
 if(isNaN(sum) || sum <= 0){
   alert("списання на 0 немажливо");
-} else if (sum > this.balance) {
+} else {}
+    let {balance} = this;
+if (sum > balance) {
   alert("недастанточно коштів");
 } else {
   this.balance -= sum;
@@ -47,7 +49,9 @@ const weather = {
   searchTemperature(){
     this.temperature = Number(prompt("Введіть температуру"));
 
-    if (this.temperature < 0) {
+    const {temperature} = this;
+
+    if (temperature < 0) {
         alert("температура ниже 0");
         return true;
     } else {
@@ -74,7 +78,9 @@ const user = {
    const inputEmail = prompt("Введіть email");
    const inputPassword = prompt("Введіть пароль");
 
-   if(inputEmail === this.email && inputPassword === this.password){
+   const {email, password} = this;
+
+   if(inputEmail === email && inputPassword === password){
     alert(`Вітаю ${this.name} ви успішно увійшли`);
    } else{
     alert(`Невірний пароль чи email`);
@@ -94,6 +100,9 @@ const movie = {
     rating:  7.8,
 
     isHighlyRated(){
+
+      let {rating} = this
+
         if (this.rating < 8) {
             return false;
         } else {
